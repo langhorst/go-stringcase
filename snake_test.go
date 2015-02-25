@@ -1,12 +1,10 @@
 package stringcase
 
-
 import "testing"
-
 
 func TestToSnakeCase(t *testing.T) {
 
-	tests := []struct{
+	tests := []struct {
 		thestring string
 		expected  string
 	}{
@@ -31,14 +29,10 @@ func TestToSnakeCase(t *testing.T) {
 			expected:  "test",
 		},
 
-
-
 		{
 			thestring: "Hello world",
 			expected:  "hello_world",
 		},
-
-
 
 		{
 			thestring: "apple banana cherry",
@@ -53,7 +47,6 @@ func TestToSnakeCase(t *testing.T) {
 			expected:  "apple_banana_cherry",
 		},
 
-
 		{
 			thestring: "appleBananaCherry",
 			expected:  "applebananacherry",
@@ -62,7 +55,6 @@ func TestToSnakeCase(t *testing.T) {
 			thestring: "AppleBananaCherry",
 			expected:  "applebananacherry",
 		},
-
 
 		{
 			thestring: "apple_banana_cherry",
@@ -76,7 +68,6 @@ func TestToSnakeCase(t *testing.T) {
 			thestring: "Apple_Banana_Cherry",
 			expected:  "apple_banana_cherry",
 		},
-
 
 		{
 			thestring: "apple-banana-cherry",
@@ -92,10 +83,41 @@ func TestToSnakeCase(t *testing.T) {
 		},
 	}
 
-
-	for test_number,test := range tests {
+	for test_number, test := range tests {
 
 		actual := ToSnakeCase(test.thestring)
+
+		if test.expected != actual {
+			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
+		}
+	}
+}
+
+func TestFromSnakeCase(t *testing.T) {
+
+	tests := []struct {
+		thestring string
+		expected  string
+	}{
+		{
+			thestring: "test",
+			expected:  "test",
+		},
+
+		{
+			thestring: "hello_world",
+			expected:  "hello world",
+		},
+
+		{
+			thestring: "apple_banana_cherry",
+			expected:  "apple banana cherry",
+		},
+	}
+
+	for test_number, test := range tests {
+
+		actual := FromSnakeCase(test.thestring)
 
 		if test.expected != actual {
 			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
