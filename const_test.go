@@ -102,6 +102,7 @@ func TestFromConstCase(t *testing.T) {
 			thestring: "TEST",
 			expected:  "TEST",
 		},
+
 		{
 			thestring: "HELLO_WORLD",
 			expected:  "HELLO WORLD",

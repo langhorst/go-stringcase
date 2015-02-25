@@ -23,7 +23,8 @@ func ToConstCase(s string) string {
 	return result
 }
 
-// FromConstCase converts the const case string 'CONST_CASE' and returns a spaced string.
+// FromConstCase converts the 'CONST_CASE' string to a spaced string and
+// returns it.
 func FromConstCase(s string) string {
 	return strings.Replace(s, "_", " ", -1)
 }

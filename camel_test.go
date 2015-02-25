@@ -110,6 +110,7 @@ func TestFromCamelCase(t *testing.T) {
 			thestring: "HELLO",
 			expected:  "HELLO",
 		},
+
 		{
 			thestring: "helloWorld",
 			expected:  "hello World",
@@ -125,6 +126,7 @@ func TestFromCamelCase(t *testing.T) {
 	}
 
 	for test_number, test := range tests {
+
 		actual := FromCamelCase(test.thestring)
 
 		if test.expected != actual {
