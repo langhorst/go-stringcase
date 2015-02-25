@@ -4,7 +4,7 @@ import "github.com/reiver/go-whitespace"
 import "strings"
 import "unicode"
 
-// ToPascalCase converts the string to 'PascalCase' and returns it.
+// ToPascalCase converts the string to "PascalCase" and returns it.
 func ToPascalCase(s string) string {
 
 	// Here we use a similar hack that the Golang strings.Title() func uses,
@@ -36,7 +36,7 @@ func ToPascalCase(s string) string {
 	return result
 }
 
-// FromPascalCase converts the 'PascalCase' string to a spaced string and
+// FromPascalCase converts the "PascalCase' string to a spaced string and
 // returns it.
 func FromPascalCase(s string) string {
 	return FromCamelCase(s)

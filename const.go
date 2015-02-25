@@ -4,7 +4,7 @@ import "github.com/reiver/go-whitespace"
 import "strings"
 import "unicode"
 
-// ToConstCase converts the string to 'CONST_CASE' and returns it.
+// ToConstCase converts the string to "CONST_CASE" and returns it.
 func ToConstCase(s string) string {
 
 	// Convert.
@@ -23,8 +23,8 @@ func ToConstCase(s string) string {
 	return result
 }
 
-// FromConstCase converts the 'CONST_CASE' string to a spaced string and
-// returns it.
+// FromConstCase converts the 'CONST_CASE' string to a spaced string
+// "CONST CASE" and returns it.
 func FromConstCase(s string) string {
 	return strings.Replace(s, "_", " ", -1)
 }

@@ -5,7 +5,7 @@ import "github.com/reiver/go-whitespace"
 import "strings"
 import "unicode"
 
-// ToCamelCase converts the string to 'camelCase' and returns it.
+// ToCamelCase converts the string to "camelCase" and returns it.
 func ToCamelCase(s string) string {
 
 	// Here we use a similar hack that the Golang strings.Title() func uses,
@@ -42,7 +42,8 @@ func ToCamelCase(s string) string {
 	return result
 }
 
-// FromCamelCase converts the 'camelCase' string to a regular string and returns it.
+// FromCamelCase converts the "camelCase" string to a spaced string "camel Case"
+// and returns it.
 func FromCamelCase(s string) string {
 	scanner := bufio.NewScanner(strings.NewReader(s))
 	scanner.Split(bufio.ScanRunes)
