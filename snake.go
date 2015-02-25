@@ -4,7 +4,7 @@ import "github.com/reiver/go-whitespace"
 import "strings"
 import "unicode"
 
-// ToSnakeCase converts the string to 'snake_case' and returns it.
+// ToSnakeCase converts the string to "snake_case" and returns it.
 func ToSnakeCase(s string) string {
 
 	// Convert.
