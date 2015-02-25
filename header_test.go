@@ -1,12 +1,10 @@
 package stringcase
 
-
 import "testing"
-
 
 func TestToHeaderCase(t *testing.T) {
 
-	tests := []struct{
+	tests := []struct {
 		thestring string
 		expected  string
 	}{
@@ -31,14 +29,10 @@ func TestToHeaderCase(t *testing.T) {
 			expected:  "Test",
 		},
 
-
-
 		{
 			thestring: "Hello world",
 			expected:  "Hello-World",
 		},
-
-
 
 		{
 			thestring: "apple banana cherry",
@@ -53,7 +47,6 @@ func TestToHeaderCase(t *testing.T) {
 			expected:  "Apple-Banana-Cherry",
 		},
 
-
 		{
 			thestring: "appleBananaCherry",
 			expected:  "Applebananacherry",
@@ -62,7 +55,6 @@ func TestToHeaderCase(t *testing.T) {
 			thestring: "AppleBananaCherry",
 			expected:  "Applebananacherry",
 		},
-
 
 		{
 			thestring: "apple_banana_cherry",
@@ -76,7 +68,6 @@ func TestToHeaderCase(t *testing.T) {
 			thestring: "Apple_Banana_Cherry",
 			expected:  "Apple-Banana-Cherry",
 		},
-
 
 		{
 			thestring: "apple-banana-cherry",
@@ -92,10 +83,41 @@ func TestToHeaderCase(t *testing.T) {
 		},
 	}
 
-
-	for test_number,test := range tests {
+	for test_number, test := range tests {
 
 		actual := ToHeaderCase(test.thestring)
+
+		if test.expected != actual {
+			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
+		}
+	}
+}
+
+func TestFromHeaderCase(t *testing.T) {
+
+	tests := []struct {
+		thestring string
+		expected  string
+	}{
+		{
+			thestring: "Test",
+			expected:  "Test",
+		},
+
+		{
+			thestring: "Hello-World",
+			expected:  "Hello World",
+		},
+
+		{
+			thestring: "Apple-Banana-Cherry",
+			expected:  "Apple Banana Cherry",
+		},
+	}
+
+	for test_number, test := range tests {
+
+		actual := FromHeaderCase(test.thestring)
 
 		if test.expected != actual {
 			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
