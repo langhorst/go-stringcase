@@ -4,7 +4,7 @@ import "github.com/reiver/go-whitespace"
 import "strings"
 import "unicode"
 
-// ToHeaderCase converts the string to 'Header-Case' and returns it.
+// ToHeaderCase converts the string to "Header-Case" and returns it.
 func ToHeaderCase(s string) string {
 
 	// Here we use a similar hack that the Golang strings.Title() func uses,
@@ -40,8 +40,8 @@ func ToHeaderCase(s string) string {
 	return result
 }
 
-// FromHeaderCase converts the 'Header-Case' string to a spaced string and
-// returns it.
+// FromHeaderCase converts the "Header-Case" string to a spaced string
+// "Header Case" and returns it.
 func FromHeaderCase(s string) string {
 	return strings.Replace(s, "-", " ", -1)
 }
