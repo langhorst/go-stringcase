@@ -1,12 +1,10 @@
 package stringcase
 
-
 import "testing"
-
 
 func TestToCamelCase(t *testing.T) {
 
-	tests := []struct{
+	tests := []struct {
 		thestring string
 		expected  string
 	}{
@@ -31,14 +29,10 @@ func TestToCamelCase(t *testing.T) {
 			expected:  "test",
 		},
 
-
-
 		{
 			thestring: "Hello world",
 			expected:  "helloWorld",
 		},
-
-
 
 		{
 			thestring: "apple banana cherry",
@@ -53,7 +47,6 @@ func TestToCamelCase(t *testing.T) {
 			expected:  "appleBananaCherry",
 		},
 
-
 		{
 			thestring: "appleBananaCherry",
 			expected:  "applebananacherry",
@@ -62,7 +55,6 @@ func TestToCamelCase(t *testing.T) {
 			thestring: "AppleBananaCherry",
 			expected:  "applebananacherry",
 		},
-
 
 		{
 			thestring: "apple_banana_cherry",
@@ -76,7 +68,6 @@ func TestToCamelCase(t *testing.T) {
 			thestring: "Apple_Banana_Cherry",
 			expected:  "appleBananaCherry",
 		},
-
 
 		{
 			thestring: "apple-banana-cherry",
@@ -92,8 +83,7 @@ func TestToCamelCase(t *testing.T) {
 		},
 	}
 
-
-	for test_number,test := range tests {
+	for test_number, test := range tests {
 
 		actual := ToCamelCase(test.thestring)
 
@@ -104,22 +94,22 @@ func TestToCamelCase(t *testing.T) {
 }
 
 func TestFromCamelCase(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		thestring string
 		expected  string
 	}{
-        {
-            thestring: "hello",
-            expected:  "hello",
-        },
-        {
-            thestring: "Hello",
-            expected:  "Hello",
-        },
-        {
-            thestring: "HELLO",
-            expected:  "HELLO",
-        },
+		{
+			thestring: "hello",
+			expected:  "hello",
+		},
+		{
+			thestring: "Hello",
+			expected:  "Hello",
+		},
+		{
+			thestring: "HELLO",
+			expected:  "HELLO",
+		},
 		{
 			thestring: "helloWorld",
 			expected:  "hello World",
@@ -134,7 +124,7 @@ func TestFromCamelCase(t *testing.T) {
 		},
 	}
 
-	for test_number,test := range tests {
+	for test_number, test := range tests {
 		actual := FromCamelCase(test.thestring)
 
 		if test.expected != actual {
