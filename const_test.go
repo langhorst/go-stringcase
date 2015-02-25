@@ -1,12 +1,10 @@
 package stringcase
 
-
 import "testing"
-
 
 func TestToConstCase(t *testing.T) {
 
-	tests := []struct{
+	tests := []struct {
 		thestring string
 		expected  string
 	}{
@@ -31,14 +29,10 @@ func TestToConstCase(t *testing.T) {
 			expected:  "TEST",
 		},
 
-
-
 		{
 			thestring: "Hello world",
 			expected:  "HELLO_WORLD",
 		},
-
-
 
 		{
 			thestring: "apple banana cherry",
@@ -53,7 +47,6 @@ func TestToConstCase(t *testing.T) {
 			expected:  "APPLE_BANANA_CHERRY",
 		},
 
-
 		{
 			thestring: "appleBananaCherry",
 			expected:  "APPLEBANANACHERRY",
@@ -62,7 +55,6 @@ func TestToConstCase(t *testing.T) {
 			thestring: "AppleBananaCherry",
 			expected:  "APPLEBANANACHERRY",
 		},
-
 
 		{
 			thestring: "apple_banana_cherry",
@@ -76,7 +68,6 @@ func TestToConstCase(t *testing.T) {
 			thestring: "Apple_Banana_Cherry",
 			expected:  "APPLE_BANANA_CHERRY",
 		},
-
 
 		{
 			thestring: "apple-banana-cherry",
@@ -92,10 +83,38 @@ func TestToConstCase(t *testing.T) {
 		},
 	}
 
-
-	for test_number,test := range tests {
+	for test_number, test := range tests {
 
 		actual := ToConstCase(test.thestring)
+
+		if test.expected != actual {
+			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
+		}
+	}
+}
+
+func TestFromConstCase(t *testing.T) {
+	tests := []struct {
+		thestring string
+		expected  string
+	}{
+		{
+			thestring: "TEST",
+			expected:  "TEST",
+		},
+		{
+			thestring: "HELLO_WORLD",
+			expected:  "HELLO WORLD",
+		},
+		{
+			thestring: "APPLE_BANANA_CHERRY",
+			expected:  "APPLE BANANA CHERRY",
+		},
+	}
+
+	for test_number, test := range tests {
+
+		actual := FromConstCase(test.thestring)
 
 		if test.expected != actual {
 			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
