@@ -1,6 +1,7 @@
 package stringcase
 
 
+import "bufio"
 import "github.com/reiver/go-whitespace"
 import "strings"
 import "unicode"
@@ -41,4 +42,28 @@ func ToCamelCase(s string) string {
 
 	// Return
 		return result
+}
+
+// FromCamelCase converts the 'camelCase' string to a regular string and returns it.
+func FromCamelCase(s string) string {
+    scanner := bufio.NewScanner(strings.NewReader(s))
+    scanner.Split(bufio.ScanRunes)
+    prevIsLowercase := false
+    result := ""
+    for scanner.Scan() {
+        r := scanner.Text()
+        if r == strings.ToLower(r) {
+            prevIsLowercase = true
+        } else if r == strings.ToUpper(r) {
+            if prevIsLowercase {
+                result += " "
+            }
+            prevIsLowercase = false
+        }
+
+        result += r
+    }
+
+    // Return
+    return result
 }

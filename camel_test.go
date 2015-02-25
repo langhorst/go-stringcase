@@ -102,3 +102,43 @@ func TestToCamelCase(t *testing.T) {
 		}
 	}
 }
+
+func TestFromCamelCase(t *testing.T) {
+	tests := []struct{
+		thestring string
+		expected  string
+	}{
+        {
+            thestring: "hello",
+            expected:  "hello",
+        },
+        {
+            thestring: "Hello",
+            expected:  "Hello",
+        },
+        {
+            thestring: "HELLO",
+            expected:  "HELLO",
+        },
+		{
+			thestring: "helloWorld",
+			expected:  "hello World",
+		},
+		{
+			thestring: "appleBananaCherry",
+			expected:  "apple Banana Cherry",
+		},
+		{
+			thestring: "AppleBananaCherry",
+			expected:  "Apple Banana Cherry",
+		},
+	}
+
+	for test_number,test := range tests {
+		actual := FromCamelCase(test.thestring)
+
+		if test.expected != actual {
+			t.Errorf("For test #%d, for %q expected %q but actually received %q.", test_number, test.thestring, test.expected, actual)
+		}
+	}
+}
