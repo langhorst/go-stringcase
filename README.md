@@ -13,6 +13,9 @@
 
 
 ## Examples
+
+#### To Case
+
 ```
 s := stringcase.ToLowerCase("Hello world")
 // hello world
@@ -31,50 +34,65 @@ s := stringcase.ToTitleCase("Hello world")
 ```
 s := stringcase.ToCamelCase("Hello world")
 // helloWorld
-
-s := stringcase.FromCamelCase("helloWorld")
-// hello World
 ```
 
 ```
 s := stringcase.ToPascalCase("Hello world")
 // HelloWorld
-
-s := stringcase.FromPascalCase("HelloWorld")
-// Hello World
 ```
 
 ```
 s := stringcase.ToSnakeCase("Hello world")
 // hello_world
-
-s := stringcase.FromSnakeCase("hello_world")
-// hello world
 ```
 
 ```
 s := stringcase.ToConstCase("Hello world")
 // HELLO_WORLD
-
-s := stringcase.FromConstCase("HELLO_WORLD")
-// HELLO WORLD
 ```
 
 ```
 s := stringcase.ToPropertyCase("Hello world")
 // hello-world
-
-s := stringcase.FromPropertyCase("hello-world")
-// hello world
 ```
 
 ```
 s := stringcase.ToHeaderCase("Hello world")
 // Hello-World
+```
 
+#### From Case
+
+```
+s := stringcase.FromCamelCase("helloWorld")
+// hello World
+```
+
+```
+s := stringcase.FromPascalCase(“HelloWorld”)
+// Hello World
+```
+
+```
+s := stringcase.FromSnakeCase("hello_world")
+// hello world
+```
+
+```
+s := stringcase.FromConstCase("HELLO_WORLD")
+// HELLO WORLD
+```
+
+```
+s := stringcase.FromPropertyCase("hello-world")
+// hello world
+```
+
+```
 s := stringcase.FromHeaderCase("Hello-World")
 // Hello World
 ```
+
 
 ## Documention
 
