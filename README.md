@@ -1,6 +1,6 @@
 # go-stringcase
 
-**go-stringcase** is a Go library that makes it so you can convert strings to different casing styles:
+**go-stringcase** is a Go library that makes it so you can convert strings to and from different casing styles:
 * lower case
 * UPPER CASE
 * Title Case
@@ -31,31 +31,49 @@ s := stringcase.ToTitleCase("Hello world")
 ```
 s := stringcase.ToCamelCase("Hello world")
 // helloWorld
+
+s := stringcase.FromCamelCase("helloWorld")
+// hello World
 ```
 
 ```
 s := stringcase.ToPascalCase("Hello world")
 // HelloWorld
+
+s := stringcase.FromPascalCase("HelloWorld")
+// Hello World
 ```
 
 ```
 s := stringcase.ToSnakeCase("Hello world")
 // hello_world
+
+s := stringcase.FromSnakeCase("hello_world")
+// hello world
 ```
 
 ```
 s := stringcase.ToConstCase("Hello world")
 // HELLO_WORLD
+
+s := stringcase.FromConstCase("HELLO_WORLD")
+// HELLO WORLD
 ```
 
 ```
 s := stringcase.ToPropertyCase("Hello world")
 // hello-world
+
+s := stringcase.FromPropertyCase("hello-world")
+// hello world
 ```
 
 ```
 s := stringcase.ToHeaderCase("Hello world")
 // Hello-World
+
+s := stringcase.FromHeaderCase("Hello-World")
+// Hello World
 ```
 
 ## Documention
